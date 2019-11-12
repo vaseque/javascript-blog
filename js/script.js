@@ -1,6 +1,7 @@
 'use strict';
 
 const titleClickHandler = function(event){
+  event.preventDefault();
   const clickedElement = this;
   console.log('Link was clicked!');
   console.log(event);
@@ -13,7 +14,7 @@ const titleClickHandler = function(event){
     activeLink.classList.remove('active');
   }
 
-  /* add class 'active' to the clicked link */
+  /* [DONE] add class 'active' to the clicked link */
 
   clickedElement.classList.add('active');
   console.log('clickedElement:', clickedElement);
@@ -28,14 +29,18 @@ const titleClickHandler = function(event){
 
   /* get 'href' attribute from the clicked link */
 
+  const clickedLink = clickedElement.getAttribute('href');
+  console.log(clickedLink);
 
 
   /* find the correct article using the selector (value of 'href' attribute) */
 
-
+  const refferedArticle = document.querySelector(clickedLink);
+  console.log(refferedArticle);
 
   /* add class 'active' to the correct article */
 
+  refferedArticle.classList.add('active');
 
 }
 
