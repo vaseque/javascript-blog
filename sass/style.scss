@@ -85,6 +85,10 @@ body {
   }
 }
 
+.titles a.active {
+  color: pink;
+}
+
 .list-horizontal {
   li {
     display: inline-block;
