@@ -82,11 +82,10 @@ body {
   padding: 0;
   .active {
     font-weight: bold;
+    color: pink;
+    font-size: 1.5rem;
+    text-decoration: none;
   }
-}
-
-.titles a.active {
-  color: pink;
 }
 
 .list-horizontal {
@@ -109,6 +108,7 @@ body {
   display: none;
   &.active {
     display: block;
+    color: green;
   }
 }
 

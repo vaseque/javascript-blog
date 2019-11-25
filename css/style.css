@@ -75,6 +75,9 @@ body {
 
 .list .active {
   font-weight: bold;
+  color: pink;
+  font-size: 1.5rem;
+  text-decoration: none;
 }
 
 .list-horizontal li {
@@ -93,6 +96,7 @@ body {
 
 .post.active {
   display: block;
+  color: green;
 }
 
 .post-author {
