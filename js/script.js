@@ -242,7 +242,7 @@ function generateTagsCloud() {
         for (let tag of allTags) {
 
             /* generate HTML of the link */
-            let linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+            const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
 
             /* add generated code to html variable */
             html = linkHTML;
