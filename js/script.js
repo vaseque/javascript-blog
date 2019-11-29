@@ -133,6 +133,7 @@ function tagClickHandler(event) {
     }
 
     generateTitleLinks('[data-tags~="' + tag + '"]');
+
 }
 
 function addClickListenersToTags() {
@@ -237,15 +238,14 @@ function generateTagsCloud() {
         /* split tags into array */
         allTags = tags.split(' ');
 
-
         /* START LOOP: for each tag */
         for (let tag of allTags) {
 
             /* generate HTML of the link */
-            //const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a><span></span></li>';
+            let linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
 
             /* add generated code to html variable */
-            //html = html + ' ' + linkHTML;
+            html = linkHTML;
 
             /* [NEW] check if this link is NOT already in allTags */
             if (!allTags.hasOwnProperty(tag)) {
@@ -254,6 +254,7 @@ function generateTagsCloud() {
                 allTags[tag] = 1;
 
             } else {
+
                 allTags[tag]++;
             }
 
@@ -261,28 +262,30 @@ function generateTagsCloud() {
         }
 
         /* insert HTML of all the links into the tags wrapper */
-        //tagsWrapper.insertAdjacentHTML('afterbegin', html);
+        tagsWrapper.insertAdjacentHTML('afterbegin', html);
 
         /* END LOOP: for every article: */
     }
 
     /* [NEW] find list of tags in right column */
-    const tagList = document.querySelector('.tags');
+   const tagList = document.querySelector('.tags');
 
     /* [NEW] create variable for all links HTML code*/
     let allTagsHTML = '';
 
     /* [NEW] START LOOP: for each tag in all tags*/
-    for (let tag in allTags) {
+   for (let tag in allTags) {
 
     /* [NEW] generate code of a link and add it to allTagsHTML*/
-        allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] + ')</a><span></span></li>';
+       //allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+       allTagsHTML += '<li><a href="#tag-' + tag + '"><span>' + tag + ' (' + allTags[tag] + ')</span></a></li>';
+
     }
+
     /* [NEW] END LOOP: for each tag in allTags*/
 
     /* [NEW] add html from allTagsHTML to tagList*/
     tagList.innerHTML = allTagsHTML;
-    console.log(tagList);
 
 }
 
