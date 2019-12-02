@@ -70,8 +70,9 @@ generateTitleLinks();
 
 function generateTags() {
 
-    const articles = document.querySelectorAll(optArticleSelector);
+    let allTags = {};
 
+    const articles = document.querySelectorAll(optArticleSelector);
 
     for (let article of articles) {
 
@@ -82,25 +83,55 @@ function generateTags() {
         }
         clearMessages();
 
-
         let html = '';
-
 
         const articleTags = article.getAttribute('data-tags');
 
-        const articleTagsArray = articleTags.split(' ');
+        const allTags = articleTags.split(' ');
 
-        for (let tag of articleTagsArray) {
+        for (let tag of allTags) {
 
-            const htmlLink = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+            const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
 
-            html = html + ' ' + htmlLink;
+            html = html + ' ' + linkHTML;
+
+            /* [NEW] check if this link is NOT already in allTags */
+            if (!allTags.hasOwnProperty(tag)) {
+
+                /* [NEW] add tags to allTags object */
+                allTags[tag] = 1;
+
+            } else {
+
+                allTags[tag]++;
+
+            }
 
         }
 
         tagsWrapper.insertAdjacentHTML('afterbegin', html);
 
     }
+    /* [NEW] find list of tags in right column */
+    const tagList = document.querySelector('.tags');
+
+    /* [NEW] create variable for all links HTML code*/
+    let allTagsHTML = '';
+
+    /* [NEW] START LOOP: for each tag in all tags*/
+    for (let tag in allTags) {
+
+        /* [NEW] generate code of a link and add it to allTagsHTML*/
+        //allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+        allTagsHTML += '<li><a href="#tag-' + tag + '"><span>' + tag + ' (' + allTags[tag] + ')</span></a></li>';
+
+    }
+
+    /* [NEW] END LOOP: for each tag in allTags*/
+
+    /* [NEW] add html from allTagsHTML to tagList*/
+    tagList.innerHTML = allTagsHTML;
+
 }
 
 generateTags();
@@ -203,6 +234,7 @@ function authorClickHandler(event) {
     generateTitleLinks('[data-author="' + tag + '"]');
 }
 
+
 function addClickListenersToAuthors() {
 
     const links = document.querySelectorAll('.post-author a');
@@ -214,79 +246,3 @@ function addClickListenersToAuthors() {
 }
 
 addClickListenersToAuthors();
-
-
-function generateTagsCloud() {
-    /* [NEW] create a new variable allTags with an empty object */
-    let allTags = {};
-
-    /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector);
-
-    /* START LOOP: for every article: */
-    for (let article of articles) {
-
-        /* find tags wrapper */
-        const tagsWrapper = document.querySelector(optTagsListSelector);
-
-        /* make html variable with empty string */
-        let html = '';
-
-        /* get tags from data-tags attribute */
-        const tags = article.getAttribute('data-tags');
-
-        /* split tags into array */
-        allTags = tags.split(' ');
-
-        /* START LOOP: for each tag */
-        for (let tag of allTags) {
-
-            /* generate HTML of the link */
-            const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
-
-            /* add generated code to html variable */
-            html = linkHTML;
-
-            /* [NEW] check if this link is NOT already in allTags */
-            if (!allTags.hasOwnProperty(tag)) {
-
-                /* [NEW] add tags to allTags object */
-                allTags[tag] = 1;
-
-            } else {
-
-                allTags[tag]++;
-            }
-
-            /* END LOOP: for each tag */
-        }
-
-        /* insert HTML of all the links into the tags wrapper */
-        tagsWrapper.insertAdjacentHTML('afterbegin', html);
-
-        /* END LOOP: for every article: */
-    }
-
-    /* [NEW] find list of tags in right column */
-   const tagList = document.querySelector('.tags');
-
-    /* [NEW] create variable for all links HTML code*/
-    let allTagsHTML = '';
-
-    /* [NEW] START LOOP: for each tag in all tags*/
-   for (let tag in allTags) {
-
-    /* [NEW] generate code of a link and add it to allTagsHTML*/
-       //allTagsHTML += tag + ' (' + allTags[tag] + ') ';
-       allTagsHTML += '<li><a href="#tag-' + tag + '"><span>' + tag + ' (' + allTags[tag] + ')</span></a></li>';
-
-    }
-
-    /* [NEW] END LOOP: for each tag in allTags*/
-
-    /* [NEW] add html from allTagsHTML to tagList*/
-    tagList.innerHTML = allTagsHTML;
-
-}
-
-generateTagsCloud();
