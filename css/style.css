@@ -76,7 +76,7 @@ body {
 .list .active {
   font-weight: bold;
   color: pink;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   text-decoration: none;
 }
 
@@ -99,8 +99,10 @@ body {
   color: green;
 }
 
-.post-author {
+.post-author a {
   font-style: italic;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 .post-tags {
@@ -110,5 +112,68 @@ body {
 
 .post-tags p {
   margin: 0 10px 0 0;
+}
+
+.tags li {
+  display: inline-block;
+  padding: 0.3em;
+}
+
+.tags li span {
+  display: none;
+}
+
+.tag-size-1 {
+  font-size: 1rem;
+  color: magenta;
+  background-color: skyblue;
+  text-decoration: none;
+  padding: 0.2em;
+}
+
+.tag-size-2 {
+  font-size: 1.3rem;
+  color: yellow;
+  background-color: green;
+  text-decoration: none;
+  padding: 0.2em;
+}
+
+.tag-size-3 {
+  font-size: 1.7rem;
+  color: black;
+  background-color: brown;
+  text-decoration: none;
+  padding: 0.2em;
+}
+
+.tag-size-5 {
+  font-size: 2.5rem;
+  color: white;
+  background-color: purple;
+  text-decoration: none;
+  padding: 0.2em;
+}
+
+.tag-size-5.active {
+  font-size: 3rem;
+}
+
+.authors {
+  font-size: 1rem;
+  background-color: skyblue;
+}
+
+.authors a {
+  text-decoration: none;
+  color: black;
+  padding: 0.5em;
+}
+
+.authors a.active {
+  display: inline;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */
