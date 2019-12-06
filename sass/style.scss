@@ -116,6 +116,11 @@ body {
   font-style: italic;
   text-decoration: none;
   list-style-type: none;
+    &.active {
+      display: inline;
+      font-size: 1.3rem;
+      color: black;
+    }
 }
 
 .post-tags {
@@ -129,7 +134,7 @@ body {
   display: inline-block;
   padding: 0.3em;
     span {
-    display: none;
+      display: none;
     }
 }
 
@@ -164,7 +169,7 @@ body {
   text-decoration: none;
   padding: 0.2em;
     &.active {
-    font-size: 3rem;
+      font-size: 3rem;
     }
 }
 
@@ -172,14 +177,13 @@ body {
   font-size: 1rem;
   background-color: skyblue;
     a {
-    text-decoration: none;
-    color:black;
-    padding: 0.5em;
-      &.active {
-      display: inline;
-      font-size: 1.3rem;
-      line-height: 1;
-      color: black;
-      }
+      text-decoration: none;
+      color:black;
+      padding: 0.5em;
+        &.active {
+          display: inline;
+          font-size: 1.3rem;
+          color: black;
+        }
     }
 }

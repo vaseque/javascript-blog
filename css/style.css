@@ -105,6 +105,12 @@ body {
   list-style-type: none;
 }
 
+.post-author a.active {
+  display: inline;
+  font-size: 1.3rem;
+  color: black;
+}
+
 .post-tags {
   display: -ms-flexbox;
   display: flex;
@@ -173,7 +179,6 @@ body {
 .authors a.active {
   display: inline;
   font-size: 1.3rem;
-  line-height: 1;
   color: black;
 }
 /*# sourceMappingURL=style.css.map */

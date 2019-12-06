@@ -91,7 +91,7 @@ function calculateTagsParams(tags) {
 
     const params = {
         max: 0,
-        min: 1
+        min: 999999,
     };
 
     for (let tag in tags) {
@@ -100,24 +100,9 @@ function calculateTagsParams(tags) {
 
         params.max = Math.max(tags[tag], params.max);
 
-        //params.min = tags[tag] < params.min ? tags[tag] : params.min;
-        //params.max = tags[tag] > params.max ? tags[tag] : params.max;
-
-        /*if (tags[tag] > params.max) {
-
-        params.max = tags[tag];
-        }
-
-        if (tags[tag] < params.min) {
-
-        params.min = tags[tag];
-
-        }*/
-
-        return params;
-
     }
 
+    return params;
 }
 
 function calculateTagsClass(count, params) {
@@ -225,7 +210,7 @@ function tagClickHandler(event) {
 
 function addClickListenersToTags() {
 
-    const links = document.querySelectorAll('.list a');
+    const links = document.querySelectorAll('.tags a, .post-tags a');
 
     for (let link of links) {
 
