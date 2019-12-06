@@ -212,9 +212,14 @@
             </main>
         </div>
     </div>
-    <script id="#template-tagCloud-link" type="text/x-handlebars-template">
+    <script id="template-authorsList-link" type="text/x-handlebars-template">
+        {{#each articleAuthors}}
+        <li><a href="#tag-{{ articleAuthor }}">{{ articleAuthor }}</a><span>({{ count }})</span></li>
+        {{/each}}
+    </script>
+    <script id="template-tagCloud-link" type="text/x-handlebars-template">
         {{#each tags}}
-        <li><a href="#tag-{{ tag }}" class=" {{ className }}">{{ title }}</a><span>({{ count }})</span></li>
+        <li><a href="#tag-{{ tag }}" class=" {{ className }}">{{ tag }}</a><span>({{ count }})</span></li>
         {{/each}}
     </script>
     <script id="template-author-link" type="text/x-handlebars-template">

@@ -144,32 +144,42 @@ body {
   background-color: skyblue;
   text-decoration: none;
   padding: 0.2em;
+  &.active {
+    font-size: 1.5rem;
+  }
 }
 
 .tag-size-2 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: yellow;
   background-color: green;
   text-decoration: none;
   padding: 0.2em;
+  &.active {
+    font-size: 2rem;
+  }
 }
 
 .tag-size-3 {
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: black;
   background-color: brown;
   text-decoration: none;
   padding: 0.2em;
+  &.active {
+    font-size: 2.5rem;
+  }
+
 }
 
 .tag-size-5 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: white;
   background-color: purple;
   text-decoration: none;
   padding: 0.2em;
     &.active {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
 }
 
