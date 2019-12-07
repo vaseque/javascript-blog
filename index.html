@@ -214,7 +214,7 @@
     </div>
     <script id="template-authorsList-link" type="text/x-handlebars-template">
         {{#each articleAuthors}}
-        <li><a href="#tag-{{ articleAuthor }}">{{ articleAuthor }}</a><span>({{ count }})</span></li>
+        <li><a href="#author-{{ articleAuthor }}">{{ articleAuthor }}</a><span>({{ count }})</span></li>
         {{/each}}
     </script>
     <script id="template-tagCloud-link" type="text/x-handlebars-template">
@@ -223,7 +223,7 @@
         {{/each}}
     </script>
     <script id="template-author-link" type="text/x-handlebars-template">
-        <li><a href="#tag-{{ id }}"><span>{{ title }}</span></a></li>
+        <a href="#author-{{ id }}"><span>{{ title }}</span></a>
     </script>
     <script id="template-article-link" type="text/x-handlebars-template">
         <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
